@@ -38,28 +38,3 @@ export const leadUpdateSchema = z.object({
 export const chatMessageSchema = z.object({
   body: trimmed(1000).min(1),
 });
-
-export const employeeCreateSchema = z.object({
-  name: trimmed(120).min(2, "Bitte gib einen Namen ein."),
-  email: z.string().trim().toLowerCase().email("Bitte gib eine gültige E-Mail-Adresse an.").max(200),
-  password: z.string().min(8, "Mindestens 8 Zeichen").max(200),
-  role: z.enum(["admin", "berater"]).default("berater"),
-  advisorId: z.coerce.number().int().positive().nullable().optional().or(z.literal(null)),
-  active: z.boolean().default(true),
-});
-
-export const advisorUpdateSchema = z.object({
-  id: z.coerce.number().int().positive(),
-  image: trimmed(500).optional().or(z.literal("")),
-  name: trimmed(120).optional(),
-  title: trimmed(120).optional(),
-  city: trimmed(120).optional(),
-  region: trimmed(120).optional(),
-  email: trimmed(200).optional().or(z.literal("")),
-  phone: trimmed(80).optional().or(z.literal("")),
-  whatsapp: trimmed(80).optional().or(z.literal("")),
-  bio: trimmed(2000).optional(),
-  quote: trimmed(500).optional().or(z.literal("")),
-  active: z.boolean().optional(),
-  sortOrder: z.coerce.number().int().optional(),
-});

@@ -3,23 +3,8 @@ import Link from "next/link";
 import { ArrowRight, CalendarCheck, MapPin, MessageCircle, Phone } from "lucide-react";
 import type { Advisor } from "@/db/schema";
 
-import Image from "next/image";
-
-export function AdvisorAvatar({ initials, size = "md", className = "", image }: { initials: string; size?: "sm" | "md" | "lg" | "xl"; className?: string; image?: string | null }) {
+export function AdvisorAvatar({ initials, size = "md", className = "" }: { initials: string; size?: "sm" | "md" | "lg" | "xl"; className?: string }) {
   const s = { sm: "h-12 w-12 text-[15px]", md: "h-16 w-16 text-[19px]", lg: "h-24 w-24 text-[28px]", xl: "h-36 w-36 text-[44px]" }[size];
-  if (image) {
-    return (
-      <Image
-        src={image}
-        alt=""
-        width={96}
-        height={96}
-        unoptimized
-        className={`shrink-0 rounded-full object-cover ring-4 ring-white/60 ${s} ${className}`}
-        aria-hidden
-      />
-    );
-  }
   return (
     <span
       className={`grid shrink-0 place-items-center rounded-full bg-gradient-to-br from-platinum via-electric-soft to-electric font-extrabold text-ink ring-4 ring-white/60 ${s} ${className}`}
@@ -44,7 +29,7 @@ export function AdvisorCard({ advisor, highlightTopic, highlightRegion }: { advi
         <span className="absolute right-5 top-5 chip border-champagne/50 bg-champagne-soft/40 text-[11px] text-ink-700">Gründer</span>
       )}
       <div className="flex items-center gap-4">
-        <AdvisorAvatar initials={advisor.initials} image={advisor.image} />
+        <AdvisorAvatar initials={advisor.initials} />
         <div className="min-w-0">
           <h3 className="truncate text-[19px] font-extrabold text-ink">{advisor.name}</h3>
           <p className="text-[13.5px] text-steel">{advisor.title}</p>

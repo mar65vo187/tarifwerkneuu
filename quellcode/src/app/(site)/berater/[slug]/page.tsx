@@ -60,7 +60,7 @@ export default async function AdvisorPage({ params, searchParams }: Props) {
           <Reveal className="mt-8 grid gap-10 lg:grid-cols-12 lg:items-center">
             <div className="lg:col-span-7">
               <div className="flex items-center gap-5">
-                <AdvisorAvatar initials={a.initials} image={a.image} size="lg" className="ring-white/15" />
+                <AdvisorAvatar initials={a.initials} size="lg" className="ring-white/15" />
                 <div>
                   {a.isFounder && <span className="chip mb-2 border-champagne/50 text-[11px] text-champagne-soft">Gründer</span>}
                   <h1 className="text-[clamp(1.9rem,4.4vw,3.4rem)] font-extrabold leading-[1.02]">{a.name}</h1>

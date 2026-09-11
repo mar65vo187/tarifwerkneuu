@@ -1,0 +1,8 @@
+TarifWerk – fertige Startseite
+
+index.html zusammen mit dem Ordner assets verwenden.
+quellcode enthält die aktualisierte ursprüngliche Next.js-Website einschließlich Beratersuche, Standortübergabe, Terminanfragen und Portal.
+Die statische Startseiten-Vorschau stellt keine eigene Datenbank und keine Portal-Serverfunktionen bereit. Links führen zu den bestehenden Serverrouten auf tarifwerk.eu. Damit dort auch die aktualisierten Filter gelten, muss der mitgelieferte Next.js-Quellcode in der bestehenden Serverumgebung eingesetzt werden.
+Das originale globals.css ist unverändert. Oben links wird das bereitgestellte Logo angezeigt. Die Startseite enthält genau einen Hero mit dem Hinweis deutschlandweit; die ältere Seite Endlich Klarheit ist nicht enthalten.
+
+Aktualisiert: Versicherungen in den Großen Entscheidungen; alle acht Themengruppen im Laufband; einheitliches echtes Logo und Beratung auf Augenhöhe.

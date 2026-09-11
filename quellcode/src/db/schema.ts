@@ -41,7 +41,6 @@ export const advisors = pgTable("advisors", {
   slug: text("slug").notNull().unique(),
   name: text("name").notNull(),
   title: text("title").notNull(),
-  image: text("image"),
   city: text("city").notNull(),
   region: text("region").notNull(),
   regions: text("regions").array().notNull().default([]),

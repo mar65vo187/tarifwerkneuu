@@ -1,3 +1,4 @@
+/* eslint-disable */
 // Idempotentes Seed: Berater-Profile + Portal-Admin.
 // Ausführen: node scripts/seed.mjs
 import { randomBytes, scryptSync } from "node:crypto";

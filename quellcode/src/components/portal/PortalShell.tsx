@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { BarChart3, Inbox, LogOut, MessageSquare, ExternalLink, Users, UserRoundCog } from "lucide-react";
+import { BarChart3, Inbox, LogOut, MessageSquare, ExternalLink } from "lucide-react";
 import type { ReactNode } from "react";
 import { Logo } from "@/components/ui/Logo";
 import type { SessionUser } from "@/lib/auth";
@@ -10,8 +10,6 @@ import type { SessionUser } from "@/lib/auth";
 const NAV = [
   { href: "/portal", label: "Übersicht", icon: BarChart3, exact: true },
   { href: "/portal/leads", label: "Anfragen & Termine", icon: Inbox },
-  { href: "/portal/mitarbeiter", label: "Mitarbeiter", icon: Users },
-  { href: "/portal/berater", label: "Berater", icon: UserRoundCog },
   { href: "/portal/chat", label: "Team-Chat", icon: MessageSquare },
 ];
 
