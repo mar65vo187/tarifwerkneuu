@@ -1,62 +1,317 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TarifWerk | TarifWerk</title>
+    <title>TarifWerk – Persönliche Beratung auf Augenhöhe</title>
     <meta name="description" content="TarifWerk – persönliche Beratung auf Augenhöhe." />
     <style>
-      :root {
-        --bg: #070d1b;
-        --panel: #101b2d;
-        --panel-strong: #16253c;
-        --line: rgba(255,255,255,.12);
-        --text: #edf3ff;
-        --muted: #b7c4db;
-        --brand: #73a1ff;
-        --brand-2: #cfe2ff;
-      }
-      * { box-sizing: border-box; }
-      html { scroll-behavior: smooth; }
-      body {
-        margin: 0; font-family: Inter, Arial, sans-serif; background: radial-gradient(circle at top, #101c32 0%, var(--bg) 55%); color: var(--text);
-        min-height: 100vh; display: grid; place-items: center; padding: 32px 16px;
-      }
-      .shell {
-        width: min(880px, 100%); background: rgba(12,20,33,.88); border: 1px solid var(--line); border-radius: 24px;
-        box-shadow: 0 25px 60px rgba(0,0,0,.28); overflow: hidden;
-      }
-      .topbar { padding: 18px 24px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; }
-      .brand { font-weight: 800; letter-spacing: .05em; font-size: 1rem; }
-      .brand span { color: var(--brand-2); }
-      .link { color: var(--brand-2); text-decoration: none; font-weight: 600; }
-      .content { padding: 40px 24px 48px; }
-      .eyebrow { color: var(--brand-2); letter-spacing: .15em; text-transform: uppercase; font-size: .72rem; font-weight: 700; }
-      h1 { margin: 12px 0 12px; font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.04; }
-      p { color: var(--muted); font-size: 1.04rem; line-height: 1.7; margin: 0 0 18px; max-width: 60ch; }
-      .cta { display: inline-flex; align-items: center; gap: 10px; margin-top: 10px; background: linear-gradient(135deg, var(--brand), #8eb3ff); color: #07111d; padding: 14px 20px; border-radius: 999px; text-decoration: none; font-weight: 800; }
-      .meta { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 28px; }
-      .meta span { background: rgba(255,255,255,.04); border: 1px solid var(--line); border-radius: 999px; padding: 8px 12px; color: var(--muted); font-size: .88rem; }
-    </style>
+:root {
+  --ink: #07111d;
+  --ink-2: #101b2d;
+  --paper: #f5f7fb;
+  --paper-2: #eef3ff;
+  --line: rgba(7,17,29,0.12);
+  --text: #1d2b3a;
+  --muted: #5d6e86;
+  --brand: #4f8dff;
+  --brand-dark: #183d8d;
+  --brand-soft: #dfeaff;
+  --green: #26c281;
+  --white: #ffffff;
+  --shadow: 0 20px 45px rgba(7,17,29,0.12);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; font-family: Arial, Helvetica, sans-serif; background: var(--paper);
+  color: var(--text); line-height: 1.6;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+.container { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+.site-header {
+  position: sticky; top: 0; z-index: 100; background: rgba(7,17,29,0.9); backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.nav-wrap { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+.brand { display: inline-flex; align-items: center; gap: 12px; color: var(--white); font-weight: 800; }
+.brand-mark { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; background: linear-gradient(135deg, #dfeaff, #7da9ff); color: #07111d; font-weight: 900; }
+.brand small { display: block; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; opacity: .7; }
+.nav { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.nav a { color: rgba(255,255,255,0.8); padding: 10px 14px; border-radius: 999px; font-size: 14px; }
+.nav a:hover { background: rgba(255,255,255,0.06); color: var(--white); }
+.button {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px; padding: 0 20px; border: none; border-radius: 999px; background: linear-gradient(135deg, var(--brand), #7da9ff); color: var(--white); font-weight: 700; cursor: pointer; box-shadow: 0 10px 24px rgba(79,141,255,0.3);
+}
+.button.secondary { background: rgba(79,141,255,0.12); color: var(--brand-dark); box-shadow: none; border: 1px solid rgba(79,141,255,0.15); }
+.hero { padding: 82px 0 56px; background: linear-gradient(180deg, #091521 0%, #0d1730 100%); color: var(--white); }
+.hero-inner { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 28px; align-items: center; }
+.kicker { display: inline-block; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #bfd1ff; font-weight: 800; }
+h1 { font-size: clamp(2.3rem, 5vw, 4.25rem); line-height: 1.05; margin: 14px 0 18px; }
+.lead { font-size: 1.1rem; color: rgba(255,255,255,0.8); max-width: 620px; }
+.hero-actions { display: flex; gap: 14px; margin-top: 24px; flex-wrap: wrap; }
+.hero-panel { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 24px; padding: 26px; box-shadow: var(--shadow); }
+.stat-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 18px; }
+.stat { border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 18px; background: rgba(255,255,255,0.02); }
+.stat strong { font-size: 1.7rem; display: block; }
+.section { padding: 72px 0; }
+.section-head { display: flex; justify-content: space-between; align-items: end; gap: 18px; margin-bottom: 28px; }
+.section-head h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; margin: 0; }
+.grid-3, .grid-4 { display: grid; gap: 22px; }
+.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.card { background: var(--white); border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow); overflow: hidden; }
+.card-body { padding: 22px; }
+.card img { width: 100%; height: 180px; object-fit: cover; }
+.card h3 { margin: 0 0 8px; font-size: 1.3rem; }
+.card p { color: var(--muted); margin: 0; }
+.muted { color: var(--muted); }
+.badge { display: inline-block; background: var(--brand-soft); color: var(--brand-dark); padding: 7px 12px; border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.form-wrap { background: var(--white); border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow); }
+.form-body { padding: 24px; }
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; }
+.form-grid .full { grid-column: 1/-1; }
+label { display: block; font-size: 13px; font-weight: 700; color: var(--muted); margin-bottom: 8px; }
+input, select, textarea { width: 100%; padding: 13px 14px; border: 1px solid var(--line); border-radius: 12px; background: #fff; font: inherit; color: var(--text); }
+textarea { min-height: 140px; resize: vertical; }
+.meta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+.meta-row span { background: var(--paper-2); color: var(--brand-dark); border-radius: 999px; padding: 8px 12px; font-size: 13px; font-weight: 700; }
+.page-hero { padding: 72px 0 34px; background: linear-gradient(180deg, #0a1425 0%, #111f34 100%); color: var(--white); }
+.page-hero h1 { margin-top: 12px; }
+.page-body { padding: 50px 0 80px; }
+.article { background: var(--white); border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow); padding: 26px; }
+.breadcrumbs { color: rgba(255,255,255,0.72); font-size: 14px; }
+.service-list { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px; }
+.service-item { display: block; background: var(--white); border: 1px solid var(--line); border-radius: 18px; padding: 24px; box-shadow: var(--shadow); }
+.service-item h3 { margin: 0 0 8px; }
+footer { background: #07111d; color: rgba(255,255,255,0.8); padding: 36px 0 52px; }
+.footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1.2fr; gap: 26px; }
+.footer-grid h4 { color: var(--white); margin: 0 0 16px; font-size: 1rem; }
+.footer-grid a { display: block; margin: 8px 0; color: rgba(255,255,255,0.8); }
+@media (max-width: 900px) {
+  .hero-inner, .grid-3, .grid-4, .service-list, .footer-grid, .form-grid { grid-template-columns: 1fr; }
+  .nav { display: none; }
+  .section-head { display: block; }
+}
+</style>
   </head>
   <body>
-    <div class="shell">
-      <div class="topbar">
-        <div class="brand">Tarif<span>Werk</span></div>
-        <a class="link" href="index.html">Zur Startseite</a>
+    
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a href="index.html" class="brand" aria-label="TarifWerk Startseite">
+      <span class="brand-mark">T</span>
+      <span>
+        <span style="font-size: 1.1rem;">TarifWerk</span>
+        <small>Beratung auf Augenhöhe</small>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="leistungen.html">Leistungen</a>
+      <a href="berater.html">Berater</a>
+      <a href="ueber-uns.html">Über uns</a>
+      <a href="karriere.html">Karriere</a>
+      <a href="faq.html">FAQ</a>
+      <a href="anfrage.html">Anfrage</a>
+    </nav>
+    <a class="button" href="berater.html">Passende Berater finden</a>
+  </div>
+</header>
+
+    
+<main>
+  <section class="hero">
+    <div class="container hero-inner">
+      <div>
+        <span class="kicker">Persönlich • Unabhängig • Verstanden</span>
+        <h1>Du brauchst klare Antworten, nicht mehr Verwirrung.</h1>
+        <p class="lead">TarifWerk begleitet dich bei wichtigen Entscheidungen zu Energie, Versicherung, Internet, Immobilien, Solaranlagen, Edelmetallen und mehr – verständlich, ehrlich und mit einem festen Ansprechpartner.</p>
+        <div class="hero-actions">
+          <a class="button" href="berater.html">Passende Berater finden</a>
+          <a class="button secondary" href="anfrage.html">Kostenlose Anfrage</a>
+        </div>
       </div>
-      <div class="content">
-        <div class="eyebrow">GitHub Pages</div>
-        <h1>TarifWerk</h1>
-        <p>Diese Seite wurde für GitHub Pages als statische Unterseite ergänzt, damit der Link nicht mehr auf 404 fällt. Du kannst sie nach Bedarf mit dem gewünschten Inhalt erweitern.</p>
-        <p>Die Website bleibt über die Startseite erreichbar und alle relevanten Unterseiten sind nun als passende HTML-Dateien vorhanden.</p>
-        <a class="cta" href="index.html">Zur Startseite</a>
-        <div class="meta">
-          <span>statisch</span>
-          <span>GitHub Pages kompatibel</span>
-          <span>/</span>
+      <div class="hero-panel">
+        <div class="badge">TarifWerk</div>
+        <div class="stat-grid">
+          <div class="stat"><strong>08–22</strong><span>täglich erreichbar</span></div>
+          <div class="stat"><strong>100%</strong><span>persönlich beraten</span></div>
+          <div class="stat"><strong>8</strong><span>Themenbereiche</span></div>
+          <div class="stat"><strong>DE</strong><span>deutschlandweit</span></div>
         </div>
       </div>
     </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Die wichtigsten Themen, bei denen wir dich begleiten.</h2>
+        <a href="leistungen.html" class="button secondary">Alle Leistungen</a>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <img src="assets/energy.webp" alt="Energieberatung" />
+          <div class="card-body">
+            <span class="badge">Energie</span>
+            <h3>Strom & Gas</h3>
+            <p>Verbrauch, Laufzeiten und Konditionen verständlich vergleichen.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/metals.webp" alt="Edelmetalle" />
+          <div class="card-body">
+            <span class="badge">Vermögen</span>
+            <h3>Edelmetalle</h3>
+            <p>Risiken und Chancen transparent bewerten statt Fachchinesisch.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/architecture.webp" alt="Immobilien und Sicherheit" />
+          <div class="card-body">
+            <span class="badge">Wohnen</span>
+            <h3>Immobilien</h3>
+            <p>Gebäude, Finanzierung und nächste Schritte sachlich durchdenken.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--paper-2);">
+    <div class="container">
+      <div class="section-head">
+        <h2>So läuft die Beratung ab</h2>
+      </div>
+      <div class="grid-4">
+        <article class="card">
+          <div class="card-body">
+            <span class="badge">1</span>
+            <h3>Dein Anliegen</h3>
+            <p>Du schilderst deine Situation. Wir hören zu und verstehen: Ziele, Wünsche, Risiken.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-body">
+            <span class="badge">2</span>
+            <h3>Orientierung</h3>
+            <p>Wir prüfen, was relevant ist – Verträge, Angebote, Laufzeiten, Ergänzungen.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-body">
+            <span class="badge">3</span>
+            <h3>Vorschläge</h3>
+            <p>Du bekommst verständliche Optionen, mit Vor- und Nachteilen.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-body">
+            <span class="badge">4</span>
+            <h3>Entscheidung</h3>
+            <p>Du entscheidest – ohne Druck, ohne Kleingedrucktes und ohne Hektik.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Warum TarifWerk</h2>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <div class="card-body">
+            <h3>Persönlich statt Hotline</h3>
+            <p>Du sprichst mit einem Menschen, der die Situation kennt und nicht nur ein Script abspielt.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-body">
+            <h3>Unabhängig statt gebunden</h3>
+            <p>Wir vergleichen Optionen und zeigen dir, was zu deinem Fall passt – ohne einseitige Bindung.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-body">
+            <h3>Ehrlich statt überredet</h3>
+            <p>Wenn etwas nicht lohnt, sagen wir es dir. Genau so soll Beratung laufen.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+    
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <div class="brand" style="color: var(--white); margin-bottom: 16px;">
+        <span class="brand-mark">T</span>
+        <span>
+          <span style="font-size: 1.1rem;">TarifWerk</span>
+          <small>Beratung auf Augenhöhe</small>
+        </span>
+      </div>
+      <p class="muted" style="color: rgba(255,255,255,0.75); max-width: 300px;">Persönliche Beratung für Privatkunden, Selbstständige und Unternehmen – verständlich, unabhängig und persönlich.</p>
+    </div>
+    <div>
+      <h4>Navigation</h4>
+      <a href="index.html">Start</a>
+      <a href="leistungen.html">Leistungen</a>
+      <a href="berater.html">Berater</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    <div>
+      <h4>Infos</h4>
+      <a href="ueber-uns.html">Über uns</a>
+      <a href="karriere.html">Karriere</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </div>
+    <div>
+      <h4>Kontakt</h4>
+      <a href="mailto:m.egenolf@tarifwerk.eu">m.egenolf@tarifwerk.eu</a>
+      <a href="tel:+4915782301076">+49 157 8230 1076</a>
+      <a href="https://wa.me/4915782301076" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    </div>
+  </div>
+</footer>
+
+    
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const faqButtons = document.querySelectorAll('[data-faq]');
+    faqButtons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        const isOpen = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', String(!isOpen));
+        const panel = button.nextElementSibling;
+        panel.hidden = isOpen;
+      });
+    });
+
+    const cards = document.querySelectorAll('[data-filter-card]');
+    const topicSelect = document.getElementById('topicFilter');
+    const regionSelect = document.getElementById('regionFilter');
+
+    function applyFilter() {
+      const topic = topicSelect ? topicSelect.value.toLowerCase() : '';
+      const region = regionSelect ? regionSelect.value.toLowerCase() : '';
+      cards.forEach(function (card) {
+        const matchTopic = !topic || card.dataset.topic.toLowerCase().includes(topic);
+        const matchRegion = !region || card.dataset.region.toLowerCase().includes(region);
+        card.style.display = (matchTopic && matchRegion) ? '' : 'none';
+      });
+    }
+    if (topicSelect) topicSelect.addEventListener('change', applyFilter);
+    if (regionSelect) regionSelect.addEventListener('change', applyFilter);
+  });
+</script>
+
   </body>
 </html>
